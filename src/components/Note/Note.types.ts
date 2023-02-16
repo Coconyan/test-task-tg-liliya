@@ -1,5 +1,5 @@
 export interface Props {
   text: string;
-  count: number;
+  id: number;
   title: string;
 }

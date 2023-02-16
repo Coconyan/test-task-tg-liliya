@@ -14,18 +14,20 @@ export const Notes = () => {
   const pageCount = Math.ceil(notesList.length / ITEMS_PER_PAGE);
 
   return (
-    <div className={styles.notes}>
-      {notesList.slice((activePage - 1) * ITEMS_PER_PAGE, activePage * ITEMS_PER_PAGE).map((item, index) => {
-        return (
-          <Note
-            key={index}
-            title={item.title}
-            text={item.text}
-            count={index + 1}
-          />
-        );
-      })}
-      <Pagination page={activePage} onChange={setActivePage} total={pageCount} />
-    </div>
+    <>
+      <div className={styles.notes}>
+        {notesList.slice((activePage - 1) * ITEMS_PER_PAGE, activePage * ITEMS_PER_PAGE).map((item) => {
+          return (
+            <Note
+              key={item.id}
+              title={item.title}
+              text={item.text}
+              id={item.id}
+            />
+          );
+        })}
+      </div>
+      <Pagination page={activePage} onChange={setActivePage} total={pageCount} position="center" />
+    </>
   );
 };
