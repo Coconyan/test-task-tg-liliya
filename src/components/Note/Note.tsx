@@ -1,11 +1,11 @@
-import { FC, useState } from "react";
+import { FC, memo, useState } from "react";
 import { Badge, Button, Card, CloseButton, Group, Text } from "@mantine/core";
 
 import { Props } from "./Note.types";
 import { deleteNote, useAppDispatch } from "../../store";
 import { NoteEditInputs } from "../NoteEditInputs";
 
-export const Note: FC<Props> = ({ text, id, title, important }) => {
+export const Note: FC<Props> = memo(({ text, id, title, important }) => {
   const [isEdit, setEdit] = useState(false);
   const dispatch = useAppDispatch();
 
@@ -39,5 +39,4 @@ export const Note: FC<Props> = ({ text, id, title, important }) => {
         )}
     </Card>
   );
-};
-
+});

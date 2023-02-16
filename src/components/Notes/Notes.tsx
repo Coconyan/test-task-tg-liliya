@@ -13,6 +13,10 @@ export const Notes = () => {
   const [activePage, setActivePage] = useState(1);
   const pageCount = Math.ceil(notesList.length / ITEMS_PER_PAGE);
 
+  if (activePage > pageCount) {
+    setActivePage(pageCount);
+  }
+
   return (
     <>
       <div className={styles.notes}>

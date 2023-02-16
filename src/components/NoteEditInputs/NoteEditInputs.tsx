@@ -21,7 +21,7 @@ export const NoteEditInputs: FC<Props> = ({ text, id, title, important, setEdit 
   };
 
   const resetNoteHandler = () => {
-    reset()
+    reset();
     setEdit(false);
   }
 
