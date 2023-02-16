@@ -13,7 +13,7 @@ export const Notes = () => {
   const [activePage, setActivePage] = useState(1);
   const pageCount = Math.ceil(notesList.length / ITEMS_PER_PAGE);
 
-  if (activePage > pageCount) {
+  if (activePage !== 1 && activePage > pageCount) {
     setActivePage(pageCount);
   }
 
