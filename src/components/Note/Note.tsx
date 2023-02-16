@@ -5,7 +5,7 @@ import { Props } from "./Note.types";
 import { deleteNote, useAppDispatch } from "../../store";
 import { NoteEditInputs } from "../NoteEditInputs";
 
-export const Note: FC<Props> = ({ text, id, title }) => {
+export const Note: FC<Props> = ({ text, id, title, important }) => {
   const [isEdit, setEdit] = useState(false);
   const dispatch = useAppDispatch();
 
@@ -16,10 +16,11 @@ export const Note: FC<Props> = ({ text, id, title }) => {
   return (
     <Card shadow="sm" p="lg" radius="md" withBorder>
       {isEdit
-        ? (<NoteEditInputs text={text} id={id} title={title} setEdit={setEdit} />)
+        ? (<NoteEditInputs text={text} id={id} title={title} important={important} setEdit={setEdit} />)
         : (
           <>
             <Group position="right">
+              {important && <Badge >Important Note</Badge>}
               <CloseButton aria-label="Delete card" onClick={deleteNoteHandler} />
             </Group>
             <Group position="apart" mt="md" mb="xs">

@@ -3,5 +3,6 @@ export interface InitialState {
     id: number;
     title: string;
     text: string;
+    important: boolean;
   }[];
 }

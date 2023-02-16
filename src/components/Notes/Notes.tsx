@@ -16,12 +16,15 @@ export const Notes = () => {
   return (
     <>
       <div className={styles.notes}>
-        {notesList.slice((activePage - 1) * ITEMS_PER_PAGE, activePage * ITEMS_PER_PAGE).map((item) => {
+        {[...notesList].sort((prev, next) => Number(next.important) - Number(prev.important)) // сортируем по наличию флага important
+          .slice((activePage - 1) * ITEMS_PER_PAGE, activePage * ITEMS_PER_PAGE) // берем нужный кусок для пагинации
+          .map((item) => {
           return (
             <Note
               key={item.id}
               title={item.title}
               text={item.text}
+              important={item.important}
               id={item.id}
             />
           );

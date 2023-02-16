@@ -1,4 +1,4 @@
-import { Input, Button } from "@mantine/core";
+import { Input, Button, Checkbox } from "@mantine/core";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import { addNote, useAppDispatch } from "../../store";
@@ -13,9 +13,9 @@ export const NoteInputs = () => {
   const dispatch = useAppDispatch();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    const { text, title } = data;
+    const { text, title, important } = data;
     const id = Date.now();
-    dispatch(addNote({id, text, title }));
+    dispatch(addNote({ id, text, title, important }));
     reset();
   };
 
@@ -30,6 +30,11 @@ export const NoteInputs = () => {
         className={styles.input}
         placeholder="Text"
         {...register("text", { required: true })}
+      />
+      <Checkbox
+        className={styles.checkbox}
+        label="Important note"
+        {...register("important")}
       />
       <Button type="submit">Submit</Button>
     </form>
