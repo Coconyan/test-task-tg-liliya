@@ -1,0 +1,1 @@
+export { NotesPagination } from "./Pagination";

@@ -5,4 +5,9 @@ export interface InitialState {
     text: string;
     important: boolean;
   }[];
+
+  pagination: {
+    activePage: number;
+    pageCount: number;
+  };
 }

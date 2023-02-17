@@ -11,3 +11,11 @@ export const editNote = createAction<{ id: number; title: string; text: string; 
 export const deleteNote = createAction<{ id: number; }>(
   "notes/deleteNote"
 );
+
+export const setActivePage = createAction<number>(
+  "notes/setActivePage"
+);
+
+export const setPageCount = createAction<number>(
+  "notes/setPageCount"
+);
